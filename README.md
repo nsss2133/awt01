@@ -188,7 +188,8 @@ $(document).on("keydown", function(e) {
         });
 ```
 
----
+### output
+![Output Screenshot](output/exp1.png)
 
 
 ###  Challenges Faced
@@ -298,7 +299,8 @@ $(document).ready(function () {
   });
 });
 ```
----
+### output
+![Output Screenshot](output/exp2.png)
 
 
 
@@ -417,6 +419,8 @@ angular.module('tableApp', [])
     vm.reverse = false;
   });
 ```
+### output
+![Output Screenshot](output/exp3.png)
 
 
 ###  Challenges Faced
@@ -602,7 +606,9 @@ angular.module('tableApp', [])
 </body>
 </html>
 ```
----
+### output
+![Output Screenshot](output/exp4bill.jpg)
+![Output Screenshot](output/exp4form.png)
 
 
 ###  Challenges Faced
@@ -736,7 +742,11 @@ app.listen(PORT, () => {
   "license": "ISC"
 }
 ```
----
+### output
+![Output Screenshot](output/exp5,6-1.jpg)
+![Output Screenshot](output/exp5,6-2.jpg)
+![Output Screenshot](output/exp5,6-3.jpg)
+![Output Screenshot](output/exp5,6-4.jpg)
 
 
 ###  Challenges Faced
@@ -829,7 +839,11 @@ app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
 });
 ```
----
+![Output Screenshot](output/exp7-cookie1.jpg)
+![Output Screenshot](output/exp7-cookie2.jpg)
+![Output Screenshot](output/exp7-cookie3.jpg)
+![Output Screenshot](output/exp7-session1.jpg)
+![Output Screenshot](output/exp7-session1.jpg)
 
 ### Challenges Faced
 - Fixing the “Cannot find module” error while running scripts  
