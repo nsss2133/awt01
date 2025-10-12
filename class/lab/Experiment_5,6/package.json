@@ -1,0 +1,21 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "testing nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "awt01"
+  },
+  "keywords": [
+    "[\"nodejs\"",
+    "\"express\"",
+    "\"lab\"]"
+  ],
+  "author": "neha",
+  "license": "ISC"
+}

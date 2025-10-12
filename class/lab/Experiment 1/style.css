@@ -1,0 +1,68 @@
+/* General Page Styling */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  margin: 30px auto;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #333;
+  border-left: 5px solid #007acc;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+
+/* Scroll-to-top Image */
+#topImage {
+  width: 60px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+#topImage:hover {
+  transform: scale(1.2);
+}
+
+/* Paragraph Styling */
+p {
+  margin: 10px 0;
+}
+.hoverText {
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  background-color: #005f99;
+  transform: scale(1.05);
+}
+
+/* Message Box */
+#messageBox {
+  display: none;
+  padding: 15px;
+  margin-top: 10px;
+  border
+}

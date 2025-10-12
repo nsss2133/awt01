@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.highlight {
+  background: red;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#animateBox {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  position: relative;
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}

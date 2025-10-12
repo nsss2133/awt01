@@ -1,25 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
 <head>
-  <title>Local jQuery</title>
-  <!-- <script src="./jquery-3.7.1.js"></script> -->
-  <!-- Make sure this file exists locally -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script> -->
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+ 
+  <title>Add Class with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .highlight {
+      background-color: yellow;
+      color: blue;
+      font-weight: bold;
+      padding: 10px;
+      border: 2px solid black;
+    }
+  </style>
 </head>
 <body>
-  <h1>Testing Local jQuery</h1>
-  <p>time taken is <span id="time">being estimated</span></p>
-  <script>
-    const start = performance.now();
+     <h1>hide p tags with hidden class</h1>
+    <h1>AWT Progress</h1>
+    <section>
+        <div>
+            <h2>lab experiments</h2>
+             <a href="./lab/exp1/index.html">lab experiment 1</a> -->
+            <!-- <a href="./lab/exp2/">lab experiment 2</a>
+        </div>
+    </section>
 
-    $(document).ready(function () {
-      const end = performance.now();
-      var timeTaken = end - start;
-      console.log("Local jQuery load time: " + timeTaken.toFixed(2) + " ms");
-      $("#time").html(timeTaken.toFixed(2) + " ms");
+    <section>
+        <div>
+            <h2>class sessions</h2>
+            <a href="./class/unit1/task1/">class task1 </a>
+        </div>
+    </section>
+
+
+
+  <h2 id="text">Hello, this is a heading!</h2>
+  <button id="btn">Add Class</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#btn").click(function() {
+        $("#text").addClass("highlight"); 
+      });
     });
   </script>
+
+</body>
+</html> --> 
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>List of Experiments</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+    <h2>List of Experiments</h2>
+    
+    <ol>
+        <li ng-repeat="l in links">
+            <a href="#">{{ l }}</a>
+        </li>
+    </ol>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.links = ["Link1", "Link2", "Link3"];
+        });
+    </script>
+
 </body>
 </html>
