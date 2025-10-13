@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
-<head>
-  <title>AngularJS Directive Example</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-</head>
-<body>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <title>AngularJS Demo</title>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+</head>  
+<body ng-app="">  
 
-  <h2>Directive with restrict options</h2>
+  <h2>AngularJS Data Binding Example</h2>  
 
-  <!-- 1. Element Example -->
-  <my-dir></my-dir>
+  <p>Name: <input type="text" ng-model="name"></p>  
 
-  <!-- 2. Attribute Example -->
-  <div my-dir></div>
 
-  <!-- 3. Class Example -->
-  <div class="my-dir"></div>
+  <p>Using Expression: {{ name }}</p>  
+  <p>Using ng-bind: <span ng-bind="name"></span></p>  
 
-  <!-- 4. Comment Example -->
-  <!-- directive: my-dir -->
+  <p>My first expression: {{ 5 + 5 }}</p>  
 
-  <script>
-    // Define AngularJS app
-    var app = angular.module("myApp", []);
-
-    // Custom Directive
-    app.directive("myDir", function () {
-      return {
-        restrict: "EACM",   // Allow all: Element, Attribute, Class, Comment
-        template: "<p style='color: green; font-weight: bold;'>Hello from myDir Directive!</p>"
-      };
-    });
-  </script>
-
-</body>
+</body>  
 </html>
