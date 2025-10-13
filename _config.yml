@@ -1,12 +1,36 @@
-# _config.yml
-title: My Site
+title: AWT Class Notes
+description: Notes and examples for AWT practicals
 theme: jekyll-theme-primer
 
+# Exclude unnecessary or problematic files/folders from Jekyll build
 exclude:
   - node_modules
-  - vendor
-  - Gemfile
-  - Gemfile.lock
+  - class/**/node_modules
   - package.json
   - package-lock.json
-  - yarn.lock
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - tmp
+  - log
+
+# Optional: include only what you want in the site
+include:
+  - class
+  - assets
+  - index.html
+
+# GitHub Pages plugins (automatically provided)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+
+markdown: kramdown
