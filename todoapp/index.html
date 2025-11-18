@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>My To-Do List (AngularJS)</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      margin: 80px auto;
+      border-radius: 12px;
+      
+    }
+    input[type=text] {
+      width: 70%;
+      padding: 8px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+    .add-btn { background: #28a745; }
+    .toggle-btn { background: #0d6efd; margin-top: 10px; }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #eee;
+      margin: 5px 0;
+      padding: 6px 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body ng-controller="todoCtrl">
+  <div class="container">
+    <h2>My To-Do List</h2>
+    <input type="text" ng-model="newItem" placeholder="Enter task...">
+    <button class="add-btn" ng-click="addItem()">Add</button><br>
+    <button class="toggle-btn" ng-click="toggleList()">
+      {{ showList ? 'Hide List' : 'Show List' }}
+    </button>
+
+    <ul ng-show="showList">
+      <li ng-repeat="item in todoList track by $index">
+        {{item}}
+        <button style="background:#dc3545" ng-click="removeItem($index)">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    angular.module('todoApp', [])
+    .controller('todoCtrl', function($scope) {
+      $scope.todoList = [];
+      $scope.showList = true;
+
+      $scope.addItem = function() {
+        if ($scope.newItem) {
+          $scope.todoList.push($scope.newItem);
+          $scope.newItem = '';
+        }
+      };
+
+      $scope.removeItem = function(index) {
+        $scope.todoList.splice(index, 1);
+      };
+
+      $scope.toggleList = function() {
+        $scope.showList = !$scope.showList;
+      };
+    });
+  </script>
+</body>
+</html>
