@@ -32,7 +32,7 @@
         {
           "name": "to-do app",
           "files": [
-            { "name": "index.html", "path": "awt01/class/to-do app/index.html" }
+            { "name": "index.html", "path": "to-do app/index.html" }
           ]
         }
       ]
