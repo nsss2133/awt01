@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo App</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Poppins, sans-serif;
+            color: white;
+        }
+
+        .box {
+            width: 420px;
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #38bdf8;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            margin-top: 12px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #loginBtn, #registerBtn {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        #loginBtn:hover, #registerBtn:hover {
+            background: #0ea5e9;
+        }
+
+        #addTodo {
+            background: #22c55e;
+            margin-top: 10px;
+        }
+        #addTodo:hover {
+            background: #16a34a;
+        }
+
+        .link {
+            color: #facc15;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 18px;
+        }
+
+        li {
+            background: rgba(255,255,255,0.15);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .todo-text {
+            flex: 1;
+            margin-right: 10px;
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+
+        .todo-btn {
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-left: 4px;
+        }
+
+        .update-btn { background: #3b82f6; color: white; }
+        .delete-btn { background: #ef4444; color: white; }
+
+        #logoutBtn {
+            background: #ef4444;
+            color: white;
+            margin-top: 15px;
+        }
+
+        #logoutBtn:hover {
+            background: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <!-- LOGIN -->
+    <div id="loginPage">
+        <h2>Login</h2>
+        <input id="loginUser" placeholder="Username">
+        <input id="loginPass" placeholder="Password" type="password">
+        <button id="loginBtn">Login</button>
+        <span class="link" id="showRegister">Create Account</span>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerPage" style="display:none;">
+        <h2>Register</h2>
+        <input id="regUser" placeholder="Username">
+        <input id="regPass" placeholder="Password" type="password">
+        <button id="registerBtn">Register</button>
+        <span class="link" id="showLogin">Already have an account? Login</span>
+    </div>
+
+    <!-- TODO PAGE -->
+    <div id="todoPage" style="display:none;">
+        <h2>Your To-Do List</h2>
+        <input id="newTodo" placeholder="New task">
+        <button id="addTodo">Add Task</button>
+
+        <ul id="todoList"></ul>
+
+        <button id="logoutBtn">Logout</button>
+    </div>
+
+</div>
+
+
+<script>
+
+// Switch Screens
+$("#showRegister").click(() => {
+    $("#loginPage").hide();
+    $("#registerPage").show();
+});
+$("#showLogin").click(() => {
+    $("#registerPage").hide();
+    $("#loginPage").show();
+});
+
+// Register
+$("#registerBtn").click(() => {
+    $.post("/register", {
+        username: $("#regUser").val(),
+        password: $("#regPass").val()
+    }, (res) => {
+        alert(res.message);
+        if (res.success) {
+            $("#registerPage").hide();
+            $("#loginPage").show();
+        }
+    }, "json");
+});
+
+// Login
+$("#loginBtn").click(() => {
+    $.post("/login", {
+        username: $("#loginUser").val(),
+        password: $("#loginPass").val()
+    }, (res) => {
+        if (res.success) {
+            loadTodos();
+            $("#loginPage").hide();
+            $("#todoPage").show();
+        } else {
+            alert(res.message);
+        }
+    }, "json");
+});
+
+// Load Todos
+function loadTodos() {
+    $.get("/todos", (data) => {
+        $("#todoList").empty();
+        data.forEach(t => {
+            $("#todoList").append(`
+                <li data-id="${t._id}">
+                    <span class="todo-text">${t.text}</span>
+                    <button class="todo-btn update-btn">Update</button>
+                    <button class="todo-btn delete-btn">Delete</button>
+                </li>
+            `);
+        });
+    }, "json");
+}
+
+// Add ToDo
+$("#addTodo").click(() => {
+    let text = $("#newTodo").val().trim();
+    if (!text) return alert("Task cannot be empty!");
+
+    $.post("/todos", { text }, (res) => {
+        $("#newTodo").val("");
+        loadTodos();
+    }, "json");
+});
+
+// Delete ToDo
+$(document).on("click", ".delete-btn", function(){
+    let id = $(this).closest("li").data("id");
+
+    $.ajax({
+        url: "/todos/" + id,
+        method: "DELETE",
+        success: () => loadTodos()
+    });
+});
+
+// Update ToDo
+$(document).on("click", ".update-btn", function(){
+    let li = $(this).closest("li");
+    let id = li.data("id");
+    let oldText = li.find(".todo-text").text();
+
+    let newText = prompt("Update task:", oldText);
+    if (!newText) return;
+
+    $.ajax({
+        url: "/todos/" + id,
+        method: "PUT",
+        data: { text: newText },
+        success: () => loadTodos()
+    });
+});
+
+// Logout
+$("#logoutBtn").click(() => {
+    $.get("/logout", () => {
+        $("#todoPage").hide();
+        $("#loginPage").show();
+    });
+});
+
+</script>
+
+</body>
+</html>
