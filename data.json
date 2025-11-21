@@ -34,6 +34,12 @@
           "files": [
             { "name": "index.html", "path": "to-do-app/index.html" }
           ]
+        },
+        {
+          "name": "To_do_app2",
+          "files": [
+            { "name": "server.js", "path": "" }
+          ]
         }
       ]
     },
