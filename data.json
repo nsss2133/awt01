@@ -51,5 +51,11 @@
         { "name": "Session-Cookie Demo", "path": "https://awt-01-6.onrender.com" }
       ]
     }
+     {
+          "name": "To_do_app2",
+          "files": [
+            { "name": "index.html", "path": "awt01\lab\To_do_app2\public\index.html" }
+          ]
+        }
   ]
 }
