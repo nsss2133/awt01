@@ -54,7 +54,7 @@
      {
           "name": "To_do_app2",
           "files": [
-            { "name": "index.html", "path": "awt01\lab\To_do_app2\public\index.html" }
+            { "name": "index.html", "path": "To_do_app2/public/index.html" }
           ]
         }
   ]
