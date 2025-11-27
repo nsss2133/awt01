@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Shapes</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <h2>Interactive Circles & Rectangles</h2>
+  <svg width="500" height="300" style="border:1px solid black"></svg>
+
+  <script>
+    const svg = d3.select("svg");
+
+    // Circle
+    svg.append("circle")
+      .attr("cx", 100)
+      .attr("cy", 150)
+      .attr("r", 40)
+      .attr("fill", "red")
+      .on("click", function () {
+        d3.select(this).attr("fill", "orange");
+      });
+
+    // Rectangle
+    svg.append("rect")
+      .attr("x", 200)
+      .attr("y", 100)
+      .attr("width", 120)
+      .attr("height", 80)
+      .attr("fill", "green")
+      .on("mouseover", function () {
+        d3.select(this).attr("fill", "yellow");
+      })
+      .on("mouseout", function () {
+        d3.select(this).attr("fill", "green");
+      });
+  </script>
+</body>
+</html>

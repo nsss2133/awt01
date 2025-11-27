@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bar Chart using D3</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <h2>Simple Bar Chart</h2>
+
+  <svg width="500" height="300"></svg>
+
+  <script>
+    const data = [10, 40, 30, 60, 20, 90];
+
+    const svg = d3.select("svg");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    const barWidth = width / data.length;
+
+    svg.selectAll("rect")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => i * barWidth)
+      .attr("y", d => height - d * 3)
+      .attr("width", barWidth - 5)
+      .attr("height", d => d * 3)
+      .attr("fill", "steelblue");
+  </script>
+</body>
+</html>

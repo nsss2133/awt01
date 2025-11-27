@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modify an SVG Element Using D3</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <h2>Select and Modify Element</h2>
+
+  <svg width="400" height="200">
+    <circle id="myCircle" cx="100" cy="100" r="40" fill="blue"></circle>
+  </svg>
+
+  <script>
+    // Select by ID and change color and size
+    d3.select("#myCircle")
+      .attr("fill", "purple")
+      .attr("r", 60)
+      .attr("cx", 150);
+  </script>
+
+</body>
+</html>

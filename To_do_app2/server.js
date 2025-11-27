@@ -27,7 +27,7 @@ app.use(
 // MongoDB
 // ----------------------
 mongoose
-  .connect("mongodb://localhost:27017/todoApp")
+  .connect("mongodb+srv://nehaS:Todo-123@cluster0.ytilau0.mongodb.net/?appName=Cluster0")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
@@ -133,4 +133,6 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 // ----------------------
-app.listen(3000, () => console.log("Server started on port 3000"));
+app.listen(3000, () =>
+  console.log("Server running at http://localhost:3000")
+);
