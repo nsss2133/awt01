@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "mongoose": "^9.0.0"
+  },
+  "devDependencies": {},
   "description": ""
 }
