@@ -1416,8 +1416,8 @@ app.listen(3000, () => {
 
 
 ### output
-![Output Screenshot](awt01/output/exp8shopping.png)  
-![Output Screenshot](awt01/output/exp8student.png)  
+![Output Screenshot](output/exp8shopping.png)  
+![Output Screenshot](output/exp8student.png)  
 
 Challenges faced:
 - Understanding how async/await works with database operations.
@@ -1559,12 +1559,10 @@ d3.csv("data.csv").then(data => {
 </head>
 
 <body>
+<h1>Experiment 9 & 10: Data Visualization (SVG + D3.js)</h1>
+<h2>Select an experiment:</h2>
 
-    <h1>Experiment 9 & 10: Data Visualization (SVG + D3.js)</h1>
-
-    <h2>Select an experiment:</h2>
-
-    <ul>
+<ul>
         <li><a href="./barChart.html" target="_blank">1. Bar Chart using SVG & D3.js</a></li>
         <li><a href="./shapes.html" target="_blank">2. Interactive Circles & Rectangles</a></li>
         <li><a href="./modifyElement.html" target="_blank">3. Select & Modify an SVG Element</a></li>
@@ -1646,10 +1644,10 @@ d3.csv("data.csv").then(data => {
 
 
 ### output
-![Output Screenshot](awt01\output\exp9_10-1.png)  
-![Output Screenshot](awt01\output\exp9_10-2.png)  
-![Output Screenshot](awt01\output\exp9_10-3.png)
-![Output Screenshot](awt01\output\exp9_10-4.png) 
+![Output Screenshot](output\exp9_10-1.png)  
+![Output Screenshot](output\exp9_10-2.png)  
+![Output Screenshot](output\exp9_10-3.png)
+![Output Screenshot](output\exp9_10-4.png) 
 
 Challenges faced:
 - Understanding the enter-update-exit pattern of D3.js
