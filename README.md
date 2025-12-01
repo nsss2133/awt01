@@ -14,6 +14,8 @@ Each experiment focuses on different web technologies including HTML, CSS, JavaS
 4. [Experiment 4](#-experiment-4)
 6. [Experiment_5,6](#-experiment-5_6)
 7. [Experiment 7](#-experiment-7)
+8. [Experiment 8](#-experiment-8)
+9. [Experiment 9_10](#-experiment-9_10)
 
 
 ---
@@ -1644,10 +1646,10 @@ d3.csv("data.csv").then(data => {
 
 
 ### output
-![Output Screenshot](output\exp9_10-1.png)  
-![Output Screenshot](output\exp9_10-2.png)  
-![Output Screenshot](output\exp9_10-3.png)
-![Output Screenshot](output\exp9_10-4.png) 
+![Output Screenshot](output/exp9_10-1.png)  
+![Output Screenshot](output/exp9_10-2.png)  
+![Output Screenshot](output/exp9_10-3.png)
+![Output Screenshot](output/exp9_10-4.png) 
 
 Challenges faced:
 - Understanding the enter-update-exit pattern of D3.js
